@@ -11,6 +11,15 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  /* Force full width against WordPress theme */
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+
   :root {
     --navy:    #0B1F3A;
     --navy2:   #122848;
@@ -175,6 +184,7 @@
     padding: 100px 24px 60px;
     position: relative;
     overflow: hidden;
+    width: 100%;
   }
 
   /* decorative gold line */
@@ -318,6 +328,7 @@
     border-bottom: 1px solid rgba(201,168,76,0.12);
     padding: 18px 24px;
     overflow: hidden;
+    width: 100%;
   }
   .proof-bar-inner {
     display: flex;
@@ -364,7 +375,7 @@
   }
 
   /* ─── SECTIONS SHARED ────────────────────── */
-  section { padding: 64px 24px; }
+  section { padding: 64px 24px; width: 100%; }
   .section-tag {
     font-size: 10px;
     font-weight: 500;
@@ -633,6 +644,7 @@
     padding: 56px 24px;
     position: relative;
     overflow: hidden;
+    width: 100%;
   }
   .about-strip::after {
     content: '"';
@@ -761,6 +773,7 @@
     background: var(--navy);
     border-top: 1px solid rgba(201,168,76,0.15);
     padding: 48px 24px 32px;
+    width: 100%;
   }
   .footer-top {
     margin-bottom: 36px;
@@ -979,8 +992,7 @@
     <h1>IFRS, explained <em>clearly.</em></h1>
     <p class="hero-sub">Practical IFRS guidance for finance professionals, accounting teams, and students worldwide. Clear explanations, real-world applications, zero jargon.</p>
     <div class="hero-ctas">
-      <a href="#resources" class="btn-primary">Download Free IFRS Guide</a>
-      <a href="#consult" class="btn-secondary">Book a Consultation</a>
+      <a href="#consult" class="btn-primary">Book a Consultation</a>
     </div>
     <div class="hero-credentials">
       <span class="cred-pill">Chartered Accountant</span>
@@ -1262,7 +1274,6 @@
 </footer>
 
 <script>
-  // Mobile nav
   function toggleNav() {
     const nav = document.getElementById('mobileNav');
     const btn = document.getElementById('hamburger');
@@ -1273,7 +1284,6 @@
     document.getElementById('mobileNav').classList.remove('open');
     document.getElementById('hamburger').classList.remove('open');
   }
-  // Close nav on outside click
   document.addEventListener('click', function(e) {
     const nav = document.getElementById('mobileNav');
     const btn = document.getElementById('hamburger');
@@ -1282,7 +1292,6 @@
     }
   });
 
-  // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
