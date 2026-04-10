@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IFRS consulting, education, and resources for finance professionals worldwide. Clear, practical IFRS guidance from a Chartered Accountant and IFRS Specialist.">
+<title>IFRS Simplified | Auditsana — IFRS Consulting & Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0B1F3A;
+    --navy2:   #122848;
+    --navy3:   #1a3560;
+    --gold:    #C9A84C;
+    --gold2:   #e8c97a;
+    --gold-lt: #f5e9c8;
+    --white:   #FFFFFF;
+    --off:     #F7F5F0;
+    --muted:   #8A96A8;
+    --text:    #E8EDF4;
+    --serif:   'Cormorant Garamond', Georgia, serif;
+    --sans:    'DM Sans', sans-serif;
+    --radius:  10px;
+    --trans:   0.3s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ─── HEADER ─────────────────────────────── */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11, 31, 58, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+    padding: 0 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .logo-main {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+  .logo-sub {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .nav-desktop {
+    display: none;
+    gap: 32px;
+    align-items: center;
+  }
+  .nav-desktop a {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(232,237,244,0.75);
+    letter-spacing: 0.04em;
+    transition: color var(--trans);
+  }
+  .nav-desktop a:hover { color: var(--gold); }
+
+  .header-cta {
+    display: none;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 9px 20px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    transition: background var(--trans);
+  }
+  .header-cta:hover { background: var(--gold2); }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--gold);
+    transition: all var(--trans);
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile nav drawer */
+  .nav-mobile {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: var(--navy2);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    z-index: 99;
+  }
+  .nav-mobile.open {
+    max-height: 400px;
+    padding: 20px;
+  }
+  .nav-mobile a {
+    display: block;
+    font-size: 15px;
+    color: var(--text);
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    letter-spacing: 0.02em;
+  }
+  .nav-mobile a:last-child { border-bottom: none; }
+  .nav-mobile .mob-cta {
+    display: block;
+    margin-top: 16px;
+    background: var(--gold);
+    color: var(--navy);
+    text-align: center;
+    padding: 13px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── HERO ───────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* decorative gold line */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* subtle grid texture */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 10vw, 68px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: clamp(15px, 3.5vw, 18px);
+    color: rgba(232,237,244,0.65);
+    line-height: 1.65;
+    margin-bottom: 36px;
+    font-weight: 300;
+    max-width: 500px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 15px 28px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    text-align: center;
+    transition: background var(--trans), transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 14px 28px;
+    border-radius: 4px;
+    border: 1px solid rgba(232,237,244,0.25);
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    text-align: center;
+    transition: border-color var(--trans), color var(--trans);
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cred-pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 5px 12px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ─── SOCIAL PROOF BAR ───────────────────── */
+  .proof-bar {
+    background: var(--navy2);
+    border-top: 1px solid rgba(201,168,76,0.12);
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    padding: 18px 24px;
+    overflow: hidden;
+  }
+  .proof-bar-inner {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .proof-bar-inner::-webkit-scrollbar { display: none; }
+  .proof-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .proof-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+  }
+  .proof-icon.li { background: #0077B5; }
+  .proof-icon.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .proof-icon.fb { background: #1877F2; }
+  .proof-icon.yt { background: #FF0000; }
+  .proof-label {
+    font-size: 12px;
+    color: rgba(232,237,244,0.6);
+  }
+  .proof-label strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .proof-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,0.1);
+    flex-shrink: 0;
+  }
+
+  /* ─── SECTIONS SHARED ────────────────────── */
+  section { padding: 64px 24px; }
+  .section-tag {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 7vw, 44px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-body {
+    font-size: 15px;
+    color: #5A6677;
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  /* ─── WHO IT'S FOR ───────────────────────── */
+  .audience { background: var(--off); }
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .audience-card {
+    background: var(--white);
+    border: 1px solid rgba(11,31,58,0.08);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    transition: border-color var(--trans), transform 0.2s;
+  }
+  .audience-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .audience-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .audience-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  .audience-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ─── STANDARDS LIBRARY PREVIEW ─────────── */
+  .standards { background: var(--white); }
+  .standards-list {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(11,31,58,0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .standard-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(11,31,58,0.06);
+    transition: background var(--trans);
+    cursor: pointer;
+  }
+  .standard-row:last-child { border-bottom: none; }
+  .standard-row:hover { background: var(--off); }
+  .std-badge {
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 9px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .std-name {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 400;
+    flex: 1;
+  }
+  .std-arrow {
+    color: var(--muted);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .standards-cta {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+  }
+  .standards-cta:hover { text-decoration: underline; }
+
+  /* ─── LEAD MAGNET ────────────────────────── */
+  .lead-magnet {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-magnet::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+  .lead-magnet-inner {
+    position: relative;
+    z-index: 2;
+  }
+  .lead-magnet .section-title { color: var(--white); }
+  .lead-magnet .section-body { color: rgba(232,237,244,0.6); }
+
+  .magnet-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 28px 0;
+  }
+  .magnet-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .magnet-icon {
+    width: 40px; height: 40px;
+    background: rgba(201,168,76,0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .magnet-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+  .magnet-desc {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .opt-in-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .opt-in-form input {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 13px 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--white);
+    outline: none;
+    transition: border-color var(--trans);
+    width: 100%;
+  }
+  .opt-in-form input::placeholder { color: rgba(255,255,255,0.3); }
+  .opt-in-form input:focus { border-color: var(--gold); }
+  .opt-in-note {
+    font-size: 11px;
+    color: rgba(232,237,244,0.35);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  /* ─── SERVICES ───────────────────────────── */
+  .services { background: var(--off); }
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid rgba(11,31,58,0.08);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--trans), transform 0.2s;
+  }
+  .service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity var(--trans);
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: rgba(11,31,58,0.07);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .service-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .service-desc {
+    font-size: 13px;
+    color: #7080A0;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+  .service-link {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* ─── ABOUT STRIP ────────────────────────── */
+  .about-strip {
+    background: var(--navy);
+    padding: 56px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-strip::after {
+    content: '"';
+    position: absolute;
+    right: -10px;
+    top: -20px;
+    font-family: var(--serif);
+    font-size: 220px;
+    color: rgba(201,168,76,0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .about-inner { position: relative; z-index: 2; }
+  .about-quote {
+    font-family: var(--serif);
+    font-size: clamp(22px, 6vw, 34px);
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+  .about-quote em { color: var(--gold); font-style: normal; }
+  .about-sig {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .about-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+  .about-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .about-title {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── TESTIMONIALS ───────────────────────── */
+  .testimonials { background: var(--white); }
+  .testi-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .testi-card {
+    background: var(--off);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    border-left: 3px solid var(--gold);
+  }
+  .testi-text {
+    font-size: 14px;
+    color: #3A4A60;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+  .testi-author {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .testi-role {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .testi-stars {
+    color: var(--gold);
+    font-size: 12px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+
+  /* ─── CONSULTATION CTA ───────────────────── */
+  .consult-cta {
+    background: var(--off);
+    text-align: center;
+    padding: 64px 24px;
+  }
+  .consult-cta .section-title { max-width: 400px; margin: 0 auto 14px; }
+  .consult-cta .section-body { margin: 0 auto 32px; text-align: center; }
+  .consult-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .btn-primary-navy {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 15px 28px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    text-align: center;
+    transition: background var(--trans);
+    display: inline-block;
+  }
+  .btn-primary-navy:hover { background: var(--navy3); }
+
+  /* ─── FOOTER ─────────────────────────────── */
+  .site-footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 48px 24px 32px;
+  }
+  .footer-top {
+    margin-bottom: 36px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-logo-main {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+  .footer-logo-sub {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .footer-desc {
+    font-size: 13px;
+    color: rgba(232,237,244,0.45);
+    line-height: 1.7;
+    max-width: 340px;
+    margin-bottom: 20px;
+  }
+  .footer-socials {
+    display: flex;
+    gap: 10px;
+  }
+  .social-btn {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: border-color var(--trans), background var(--trans);
+    cursor: pointer;
+  }
+  .social-btn:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.1);
+  }
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+  .footer-col-title {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: rgba(232,237,244,0.5);
+    padding: 4px 0;
+    transition: color var(--trans);
+  }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(232,237,244,0.25);
+  }
+  .footer-disclaimer {
+    font-size: 10px;
+    color: rgba(232,237,244,0.18);
+    line-height: 1.6;
+  }
+
+  /* ─── DESKTOP OVERRIDES ──────────────────── */
+  @media (min-width: 768px) {
+    section { padding: 80px 48px; }
+
+    .site-header { padding: 0 48px; }
+    .nav-desktop { display: flex; }
+    .header-cta { display: inline-block; }
+    .hamburger { display: none; }
+    .nav-mobile { display: none !important; }
+
+    .hero { padding: 120px 48px 80px; }
+
+    .hero-ctas {
+      flex-direction: row;
+      gap: 14px;
+    }
+    .btn-primary, .btn-secondary { width: auto; }
+
+    .audience-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .magnet-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .opt-in-form {
+      flex-direction: row;
+      gap: 10px;
+    }
+    .opt-in-form input { flex: 1; }
+    .opt-in-form .btn-primary { flex-shrink: 0; white-space: nowrap; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .consult-btns {
+      flex-direction: row;
+      max-width: none;
+      justify-content: center;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .footer-links {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .about-strip { padding: 80px 48px; }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-inner { max-width: 700px; }
+    section { padding: 96px 80px; }
+    .site-header { padding: 0 80px; }
+    .hero { padding: 140px 80px 100px; }
+    .about-strip { padding: 96px 80px; }
+    .site-footer { padding: 64px 80px 40px; }
+    .standards-list { max-width: 680px; }
+    .audience-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ─── SCROLL ANIMATIONS ──────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════ -->
+<header class="site-header">
+  <a href="/" class="logo">
+    <span class="logo-main">IFRS Simplified</span>
+    <span class="logo-sub">by Auditsana</span>
+  </a>
+  <nav class="nav-desktop">
+    <a href="#standards">Standards</a>
+    <a href="#services">Services</a>
+    <a href="#resources">Resources</a>
+    <a href="#about">About</a>
+    <a href="#blog">Blog</a>
+  </nav>
+  <a href="#consult" class="header-cta">Book a Call</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile nav -->
+<nav class="nav-mobile" id="mobileNav">
+  <a href="#standards" onclick="closeNav()">Standards Library</a>
+  <a href="#services" onclick="closeNav()">Services</a>
+  <a href="#resources" onclick="closeNav()">Free Resources</a>
+  <a href="#about" onclick="closeNav()">About</a>
+  <a href="#blog" onclick="closeNav()">Blog</a>
+  <a href="#consult" class="mob-cta" onclick="closeNav()">Book a Consultation Call</a>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-tag">IFRS Consulting & Education</div>
+    <h1>IFRS, explained <em>clearly.</em></h1>
+    <p class="hero-sub">Practical IFRS guidance for finance professionals, accounting teams, and students worldwide. Clear explanations, real-world applications, zero jargon.</p>
+    <div class="hero-ctas">
+      <a href="#resources" class="btn-primary">Download Free IFRS Guide</a>
+      <a href="#consult" class="btn-secondary">Book a Consultation</a>
+    </div>
+    <div class="hero-credentials">
+      <span class="cred-pill">Chartered Accountant</span>
+      <span class="cred-pill">IFRS Specialist</span>
+      <span class="cred-pill">IFRS Simplified</span>
+      <span class="cred-pill">140+ Countries</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIAL PROOF BAR ══════════════════════════ -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="proof-item">
+      <div class="proof-icon li">in</div>
+      <span class="proof-label"><strong>LinkedIn</strong> — IFRS insights</span>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-icon ig">▶</div>
+      <span class="proof-label"><strong>@ifrs_simplified</strong> on Instagram</span>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-icon fb">f</div>
+      <span class="proof-label"><strong>IFRS Simplified</strong> on Facebook</span>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-icon yt">▶</div>
+      <span class="proof-label"><strong>YouTube</strong> — free IFRS lessons</span>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <span class="proof-label">Used in <strong>140+ countries</strong> worldwide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WHO IT'S FOR ══════════════════════════════ -->
+<section class="audience fade-up">
+  <div class="section-tag">Who it's for</div>
+  <h2 class="section-title">Built for finance <em>professionals</em></h2>
+  <p class="section-body">Whether you're implementing IFRS for the first time, preparing for a professional exam, or navigating a complex disclosure — this is where you find clarity.</p>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="audience-icon">📊</div>
+      <div class="audience-title">Finance & Reporting Teams</div>
+      <div class="audience-desc">Prepare IFRS-compliant statements with confidence</div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon">🎓</div>
+      <div class="audience-title">ACCA / CPA / CA Students</div>
+      <div class="audience-desc">Master IFRS for your professional exams</div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon">🏢</div>
+      <div class="audience-title">CFOs & Controllers</div>
+      <div class="audience-desc">Strategic IFRS adoption and transition support</div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon">🌍</div>
+      <div class="audience-title">Emerging Market Firms</div>
+      <div class="audience-desc">Transitioning from local GAAP to IFRS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STANDARDS LIBRARY ═════════════════════════ -->
+<section class="standards fade-up" id="standards">
+  <div class="section-tag">Standards library</div>
+  <h2 class="section-title">Every standard, <em>simplified</em></h2>
+  <p class="section-body">Practical breakdowns of every major IFRS and IAS standard — with journal entries, worked examples, and disclosure checklists.</p>
+  <div class="standards-list">
+    <div class="standard-row">
+      <span class="std-badge">IFRS 9</span>
+      <span class="std-name">Financial Instruments — Classification, measurement & ECL</span>
+      <span class="std-arrow">›</span>
+    </div>
+    <div class="standard-row">
+      <span class="std-badge">IFRS 15</span>
+      <span class="std-name">Revenue from Contracts with Customers</span>
+      <span class="std-arrow">›</span>
+    </div>
+    <div class="standard-row">
+      <span class="std-badge">IFRS 16</span>
+      <span class="std-name">Leases — Lessee & lessor accounting</span>
+      <span class="std-arrow">›</span>
+    </div>
+    <div class="standard-row">
+      <span class="std-badge">IFRS 17</span>
+      <span class="std-name">Insurance Contracts</span>
+      <span class="std-arrow">›</span>
+    </div>
+    <div class="standard-row">
+      <span class="std-badge">IAS 36</span>
+      <span class="std-name">Impairment of Assets — Indicators, CGUs & VIU</span>
+      <span class="std-arrow">›</span>
+    </div>
+    <div class="standard-row">
+      <span class="std-badge">IAS 38</span>
+      <span class="std-name">Intangible Assets — Recognition & amortisation</span>
+      <span class="std-arrow">›</span>
+    </div>
+    <div class="standard-row">
+      <span class="std-badge">IFRS 3</span>
+      <span class="std-name">Business Combinations — Acquisition method</span>
+      <span class="std-arrow">›</span>
+    </div>
+  </div>
+  <p class="standards-cta">View full standards library →</p>
+</section>
+
+<!-- ═══ LEAD MAGNET ═══════════════════════════════ -->
+<section class="lead-magnet fade-up" id="resources">
+  <div class="lead-magnet-inner">
+    <div class="section-tag">Free resources</div>
+    <h2 class="section-title" style="color:var(--white);">Get your free <em>IFRS toolkit</em></h2>
+    <p class="section-body">Practical reference guides used by finance professionals in over 140 countries. Free, instantly downloadable.</p>
+    <div class="magnet-cards">
+      <div class="magnet-card">
+        <div class="magnet-icon">📋</div>
+        <div>
+          <div class="magnet-title">IFRS Standards Quick Reference Card</div>
+          <div class="magnet-desc">All 40+ standards at a glance</div>
+        </div>
+      </div>
+      <div class="magnet-card">
+        <div class="magnet-icon">⚖️</div>
+        <div>
+          <div class="magnet-title">IFRS vs US GAAP Cheat Sheet</div>
+          <div class="magnet-desc">Key differences, side by side</div>
+        </div>
+      </div>
+      <div class="magnet-card">
+        <div class="magnet-icon">🔍</div>
+        <div>
+          <div class="magnet-title">Top 10 IFRS 16 Mistakes Guide</div>
+          <div class="magnet-desc">Common errors and how to avoid them</div>
+        </div>
+      </div>
+      <div class="magnet-card">
+        <div class="magnet-icon">✅</div>
+        <div>
+          <div class="magnet-title">IFRS Disclosure Checklist</div>
+          <div class="magnet-desc">Never miss a required disclosure</div>
+        </div>
+      </div>
+    </div>
+    <form class="opt-in-form" onsubmit="return false;">
+      <input type="email" placeholder="Enter your work email address">
+      <button class="btn-primary" type="submit">Send Me the Toolkit</button>
+    </form>
+    <p class="opt-in-note">No spam. Unsubscribe any time. Used by 5,000+ finance professionals.</p>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ══════════════════════════════════ -->
+<section class="services fade-up" id="services">
+  <div class="section-tag">How I can help</div>
+  <h2 class="section-title">Services for <em>every need</em></h2>
+  <p class="section-body">From one-on-one consulting to self-paced courses and ready-to-use templates — practical IFRS support at every level.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-title">IFRS Consulting</div>
+      <div class="service-desc">Hands-on support for IFRS adoption, first-time implementation, financial reporting review, and complex standard application. Remote, worldwide.</div>
+      <a href="#consult" class="service-link">Book a call →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-title">Online Courses</div>
+      <div class="service-desc">Self-paced and live cohort courses on IFRS fundamentals and individual standards. Built for professionals, ACCA students, and finance teams.</div>
+      <a href="#courses" class="service-link">View courses →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-title">Digital Products</div>
+      <div class="service-desc">Excel templates, disclosure checklists, and IFRS workbooks you can use immediately. Professionally designed, instantly downloadable.</div>
+      <a href="#products" class="service-link">Browse products →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT STRIP ════════════════════════════════ -->
+<section class="about-strip fade-up" id="about">
+  <div class="about-inner">
+    <p class="about-quote">"IFRS shouldn't require a law degree to understand. My goal is to make every standard <em>immediately applicable</em> — whether you're in Dubai, Nairobi, or Manila."</p>
+    <div class="about-sig">
+      <div class="about-avatar">S</div>
+      <div>
+        <div class="about-name">Sanket — CA, IFRS Specialist</div>
+        <div class="about-title">Founder, IFRS Simplified · Auditsana</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ══════════════════════════════ -->
+<section class="testimonials fade-up">
+  <div class="section-tag">What people say</div>
+  <h2 class="section-title">Trusted by finance <em>professionals</em></h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The IFRS 16 breakdown finally made sense of something I'd been struggling with for months. Practical, clear, and immediately usable."</p>
+      <div class="testi-author">Madhavan Raman</div>
+      <div class="testi-role">ACMA, CGMA · Finance Manager, UAE</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Sanket's approach to explaining complex IFRS standards through worked examples saved our team significant time during our transition."</p>
+      <div class="testi-author">Finance Professional</div>
+      <div class="testi-role">Reporting Manager · Middle East</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The free cheat sheets alone are worth following the page. The disclosure checklist is now a permanent part of our month-end close process."</p>
+      <div class="testi-author">ACCA Student</div>
+      <div class="testi-role">SBR Paper · London</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONSULT CTA ════════════════════════════════ -->
+<section class="consult-cta fade-up" id="consult">
+  <div class="section-tag">Work with me</div>
+  <h2 class="section-title">Ready to get <em>clarity</em> on IFRS?</h2>
+  <p class="section-body">Whether you need a one-hour consultation or long-term reporting support — let's talk.</p>
+  <div class="consult-btns">
+    <a href="mailto:hello@auditsana.com" class="btn-primary-navy">Book a Discovery Call</a>
+    <a href="#resources" class="btn-secondary" style="color:var(--navy); border-color:rgba(11,31,58,0.2);">Get Free Resources</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo-main">IFRS Simplified</div>
+      <div class="footer-logo-sub">by Auditsana · Chartered Accountants</div>
+      <p class="footer-desc">Practical IFRS consulting and education for finance professionals worldwide. Clear standards. Real applications. Global reach.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+        <a href="#" class="social-btn" aria-label="Instagram">▶</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <div class="footer-col">
+      <div class="footer-col-title">Standards</div>
+      <a href="#">IFRS 9</a>
+      <a href="#">IFRS 15</a>
+      <a href="#">IFRS 16</a>
+      <a href="#">IFRS 17</a>
+      <a href="#">Full library →</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <a href="#">IFRS Consulting</a>
+      <a href="#">Online Courses</a>
+      <a href="#">Digital Products</a>
+      <a href="#">Corporate Training</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+      <a href="#">Free Resources</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Auditsana. All rights reserved.</p>
+    <p class="footer-disclaimer">Professional services. Content is educational and does not constitute formal financial advice.</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  function toggleNav() {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeNav() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  // Close nav on outside click
+  document.addEventListener('click', function(e) {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('hamburger');
+    if (!nav.contains(e.target) && !btn.contains(e.target) && nav.classList.contains('open')) {
+      closeNav();
+    }
+  });
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
